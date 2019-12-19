@@ -5,16 +5,12 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
 
-from .models import Question
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    # rendor version (shortcut)
     context = {
-        'latest_question_list': latest_question_list,
-        'new_key': 'new_val123'
+        'greating_word': 'hey you!',
     }
-    return render(request, 'polls/index.html', context) # ./templates/polls/index.html # returns an HttpResponse object of the given template rendered with the given context.
+    return render(request, 'profile/index.html', context) # ./templates/polls/index.html # returns an HttpResponse object of the given template rendered with the given context.
 
     # template version
     # template = loader.get_template('polls/index.html')
